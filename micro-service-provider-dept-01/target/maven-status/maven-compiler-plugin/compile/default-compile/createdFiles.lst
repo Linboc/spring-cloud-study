@@ -1,0 +1,6 @@
+com\boc\springcloud\DeptApplication.class
+com\boc\springcloud\service\impl\DeptServiceImpl.class
+com\boc\springcloud\service\DeptService.class
+com\boc\springcloud\config\MybatisConfig.class
+com\boc\springcloud\controller\DeptController.class
+com\boc\springcloud\mapper\DeptMapper.class

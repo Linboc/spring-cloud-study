@@ -1,0 +1,15 @@
+server:
+  port: 7003
+  
+eureka:
+  server:
+    # 取消eureka自我保护机制，不推荐这么做，因为可能会因为网络阻塞而删除正常的微服务信息。 
+    # enablr-self-preservation: false
+  instance:
+    hostname: micro-service-eureka-03.com                  # eureka在注册中心的实例名
+  client:
+    register-with-eureka: false  
+    fetch-registry: false 
+    service-url: 
+      defaultZone: http://micro-service-eureka-01.com:7001/eureka/,http://micro-service-eureka-02.com:7002/eureka/
+  

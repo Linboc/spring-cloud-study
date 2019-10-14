@@ -1,0 +1,18 @@
+server:
+  port: 9001
+  
+spring:
+  application:
+    name: micro-service-cloud-consumer
+    
+feign:
+  hystrix:
+    enabled: true
+  
+eureka:
+  client: 
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: SpringCloud-consumer:9001                       # 在eureka显示的主机名
+    prefer-ip-address: true                                      # 在eureka选择该服务时，使用该服务的ip，否则是http://desktop-r0hrp5s:8001这种临时生成的ip

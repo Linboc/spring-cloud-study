@@ -35,6 +35,14 @@ eureka:
     instance-id: SpringCloud-Dept:8001                       # 在eureka显示的主机名
     prefer-ip-address: true                                  # 在eureka选择该服务时，使用该服务的ip，否则是http://desktop-r0hrp5s:8001这种临时生成的ip
 
+management:
+  security: 
+    enabled: false      # 不进行鉴权，公开所有监控
+  endpoints: 
+    web:
+      exposure: 
+        include: hystrix.stream  
+
 info:
   app:
     name: cloud-dept

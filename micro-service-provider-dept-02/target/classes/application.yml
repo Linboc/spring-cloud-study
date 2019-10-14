@@ -1,0 +1,49 @@
+server:
+  port: 8002
+  
+mybatis:
+  type-aliases-package: com.boc.springcloud.entities         # 自动为这个包下的类创建别名，比如com.boc.entities.User->User，因此这个包里有的类可以在mapper.xml里直接使用类名
+  mapper-locations:
+  - classpath:mapper/**/*.xml                                # 需要扫描mapper.xml所在的位置
+  configuration:
+    mapUnderscoreToCamelCase: true                           # 设置entite和数据库的字段格式,驼峰与下划线自动转换
+
+logging:
+  level:
+     com.boc.springcloud.mapper: debug                       # 开启该包下的mapper接口的sql日志
+
+management:
+  security: 
+    enabled: false      # 不进行鉴权，公开所有监控
+
+spring:
+  application:
+    name: micro-service-cloud-dept                           # 微服务名
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource             # 数据源类型
+    driver-class-name: org.gjt.mm.mysql.Driver               # 数据库驱动
+    url: jdbc:mysql://localhost:3306/spring_cloud_01
+    username: root
+    password: 1111
+    dbcp2:
+      min-idle: 5                                            # 连接池维持最小连接数
+      initial-size: 5                                        # 初始化连接数
+      max-total: 5                                           # 最大连接数
+      max-wait-millis: 200                                   # 等待连接最大超时时间
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: SpringCloud-Dept:8002                       # 在eureka显示的主机名
+    prefer-ip-address: true                                  # 在eureka选择该服务时，使用该服务的ip，否则是http://desktop-r0hrp5s:8001这种临时生成的ip
+
+info:
+  app:
+    name: cloud-dept
+  company:
+    name: boc.com
+  build:
+    artifactId: micro-service-provider-dept-02                          # 通过在parent项目的pom文件中导入resources插件，并设置相关属性后，可以用指定符号访问当前项目的maven属性
+    project-version: 0.1                        # 哪怕在pom里面定义特殊字符也能解析，比如#，在这里是注释，如果定义#之后用##，#project.version#还是能生效

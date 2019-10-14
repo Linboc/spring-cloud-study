@@ -88,6 +88,12 @@
 	<modules>
 		<module>micro-service-cloud-api</module>
 		<module>micro-service-provider-dept-01</module>
-		<module>micro-service-cloud-eureka</module>
+		<module>micro-service-cloud-eureka-01</module>
+		<module>micro-service-cloud-eureka-02</module>
+		<module>micro-service-cloud-eureka-03</module>
+		<module>micro-service-consumer-01</module>
+		<module>micro-service-hystrix-dashboard</module>
+		<module>micro-service-cloud-zuul-geteway-7010</module>
+		<module>micro-service-cloud-config</module>
 	</modules>
 </project>

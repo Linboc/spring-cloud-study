@@ -1,0 +1,20 @@
+server:
+  port: 7010
+  
+spring:
+  application:
+    name: micro-service-cloud-zull-gateway
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    instance-id: zuul-gateway-7010
+    prefer-ip-address: true
+    
+zuul:
+  prefix: /boc
+  ignored-services: "*"
+  routes:
+    mydept.serviceId: MICRO-SERVICE-CLOUD-DEPT
+    mydept.path: /mydept/**
